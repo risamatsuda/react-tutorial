@@ -54,6 +54,7 @@ export default function Board(){
   );
 }
 
+//「この中身はReact特有のものではないので、あまり気にしないようにしてください」
 function calculateWinner(squares){
   const lines = [
     [0, 1, 2],
