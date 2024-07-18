@@ -7,13 +7,16 @@ function Square({value, onSquareClick}) {
 }
 
 export default function Board(){
+  //プレイヤーが着手するたびに、どちらが次のプレイヤーかを切り替えるための変数
   const [xIsNext, setXIsNext] = useState(true);
+  //盤面の状態を管理するための変数
   const [squares, setSquares] = useState(Array(9).fill(null));
 
   function handleClick(i){
     if(squares[i]||calculateWinner(squares)){
       return;
     }
+    //nextSquaresはsquaresのコピー
     const nextSquares = squares.slice();
     if(xIsNext){
       nextSquares[i] = 'X';
@@ -24,6 +27,7 @@ export default function Board(){
     setXIsNext(!xIsNext);
   }
 
+  
   const winner = calculateWinner(squares);
   let status;
   if(winner){
